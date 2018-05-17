@@ -12,6 +12,6 @@
 */
 
 Route::get('/', 'PagesController@index');
-Route::get('/article', 'PagesController@article');
+Route::get('/article', 'ArticleController@index');
 // creates route by itself
 Route::resource('posts', 'PostsController');
