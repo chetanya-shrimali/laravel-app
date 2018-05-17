@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
 
-class PostsController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +13,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //$posts = Post::orderBy('title', 'desc')->get();//'asc' for ascendin; 'desc' for descending
-        //Post::where('title', 'Post Two')->get();
-        //Post::orderBy('title', 'desc')->take(1)->get(); for just one result!
-        $posts = Post::orderBy('title', 'desc')->paginate(1);
-        return view('posts.index')-> with('posts', $posts);
+        //
     }
 
     /**
@@ -50,8 +45,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post= Post::find($id);
-        return view('posts.show') -> with('post', $post);
+        //
     }
 
     /**
