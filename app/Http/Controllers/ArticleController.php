@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Http\Resources\Article as ArticleResource;
 use App\Article;
 
 class ArticleController extends Controller
@@ -12,9 +14,14 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(){
+        $articles = Article::paginate(15);
+        return ArticleResource::collection($articles);
+    }
+
+    public function articles()
     {
-        $articles = Article::all();
+        $articles = Article::paginate(5);
         return view('pages.article')->with('articles', $articles);
     }
 
