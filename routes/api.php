@@ -18,9 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('articles', 'ArticleController@index');
-Route::get('articles/{id}', 'ArticleController@index');
+Route::get('article/{id}', 'ArticleController@show');
 //add new article
 Route::post('article', 'ArticleController@store');
 //update existing article
-Route::put('articles', 'ArticleController@store');
-Route::get('articles/{id}', 'ArticleController@destroy');
+Route::put('article', 'ArticleController@store');
+Route::delete('article/{id}', 'ArticleController@destroy');
